@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "brand": { "ink": "#111111", "paper": "#F5F5F4", "accent": "#2563EB", "font": "Inter, system-ui, -apple-system, Segoe UI, sans-serif" },
+  "slots": ["headline", "card", "stat", "transition", "lower-third", "screens", "photos", "captions", "icons", "end-screen"],
+  "moves": [
+    { "code": "HL1", "name": "Headline rise", "slot": "headline", "formats": ["9:16", "16:9"], "file": "moves/hl1.js", "status": "live", "source": "starter",
+      "props": { "text": "string", "sub": "string (optional)" }, "rules": ["Keep headlines under 8 words", "Never over a face"] },
+    { "code": "CD1", "name": "Card slide-in", "slot": "card", "formats": ["9:16", "16:9"], "file": "moves/cd1.js", "status": "live", "source": "starter",
+      "props": { "title": "string", "body": "string" }, "rules": ["One idea per card", "Sits low in the frame"] },
+    { "code": "ST1", "name": "Stat count-up", "slot": "stat", "formats": ["9:16", "16:9"], "file": "moves/st1.js", "status": "live", "source": "starter",
+      "props": { "value": "number", "prefix": "string", "suffix": "string", "label": "string" }, "rules": ["One number per shot"] },
+    { "code": "TR1", "name": "Colour wipe", "slot": "transition", "formats": ["9:16", "16:9"], "file": "moves/tr1.js", "status": "live", "source": "starter",
+      "props": {}, "rules": ["Place the cut at the half-way point of the wipe"] }
+  ],
+  "references": []
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Review draft</title>
+<style>
+  :root { --ink:#111; --mute:#6b6b70; --line:#e4e4e7; --bg:#f5f5f4; --acc:#2563eb; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.4 system-ui,-apple-system,Segoe UI,sans-serif; color:var(--ink); background:var(--bg); }
+  header { display:flex; align-items:center; gap:12px; padding:12px 20px; background:#fff; border-bottom:1px solid var(--line); }
+  header h1 { font-size:15px; margin:0; flex:1; }
+  button { font:inherit; border:1px solid var(--line); background:#fff; border-radius:8px; padding:7px 12px; cursor:pointer; }
+  button.primary { background:var(--ink); color:#fff; border-color:var(--ink); }
+  main { display:grid; grid-template-columns:minmax(240px,380px) 1fr; gap:20px; padding:20px; max-width:1200px; margin:0 auto; }
+  @media (max-width:760px){ main{ grid-template-columns:1fr; } }
+  video { width:100%; border-radius:12px; background:#000; display:block; }
+  #timeline { display:flex; gap:3px; margin-top:12px; height:44px; }
+  .seg { flex:1 1 0; border-radius:6px; background:#fff; border:1px solid var(--line); font-size:11px; padding:4px 6px; overflow:hidden; cursor:pointer; white-space:nowrap; text-overflow:ellipsis; }
+  .seg.sel { border-color:var(--acc); box-shadow:0 0 0 2px #2563eb33; }
+  .seg.changed { background:#eef4ff; }
+  .panel { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; }
+  h2 { font-size:15px; margin:0 0 4px; } .mute { color:var(--mute); }
+  #alts { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:14px 0; }
+  .alt { border:1px solid var(--line); border-radius:10px; padding:8px; cursor:pointer; background:#fafafa; }
+  .alt.cur { border-color:var(--acc); background:#eef4ff; }
+  .alt video { aspect-ratio:var(--ar); object-fit:cover; }
+  .alt b { display:block; margin-top:6px; font-size:12px; }
+  .alt small { color:var(--mute); }
+  .noprev { aspect-ratio:var(--ar); display:grid; place-items:center; background:#eee; border-radius:8px; color:var(--mute); font-size:12px; }
+  textarea { width:100%; min-height:70px; border:1px solid var(--line); border-radius:8px; padding:8px; font:inherit; }
+  #done { margin-top:16px; }
+</style>
+</head>
+<body>
+<header><h1 id="title">Review draft</h1><button id="copy">Copy picks</button><button id="dl" class="primary">Download picks.json</button></header>
+<main>
+  <section><video id="vid" controls playsinline></video><div id="timeline"></div></section>
+  <section class="panel">
+    <h2 id="shotTitle">Pick a shot</h2><div class="mute" id="shotMeta">Click a shot on the timeline.</div>
+    <div id="alts"></div>
+    <label class="mute" for="note">Note for this shot</label><textarea id="note" placeholder="Optional. Anything the moves cannot say."></textarea>
+    <div id="done" class="mute">When you are done, download picks.json and tell Claude: apply my picks.</div>
+  </section>
+</main>
+<script src="review.data.js"></script>
+<script>
+const R = window.REVIEW, KEY = "review:" + R.project;
+const AR = R.format === "9:16" ? "9 / 16" : "16 / 9";
+document.documentElement.style.setProperty("--ar", AR);
+document.getElementById("title").textContent = "Review: " + R.project;
+const vid = document.getElementById("vid"); vid.src = R.video;
+let picks = {}; try { picks = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+let cur = null;
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch (e) {} paint(); };
+const pick = (s) => picks[s.id] || (picks[s.id] = { shot: s.id, original: s.move, move: s.move, note: "" });
+const total = Math.max(...R.shots.map((s) => (s.t0 || 0) + (s.d || 0)));
+
+function paint() {
+  const tl = document.getElementById("timeline"); tl.innerHTML = "";
+  R.shots.forEach((s) => {
+    const p = picks[s.id], d = document.createElement("div");
+    d.className = "seg" + (cur === s.id ? " sel" : "") + (p && (p.move !== p.original || p.note) ? " changed" : "");
+    d.style.flexGrow = Math.max(1, (s.d || 1)); d.textContent = s.label || s.id; d.title = s.label || s.id;
+    d.onclick = () => { cur = s.id; vid.currentTime = s.t0 || 0; show(); paint(); }; tl.appendChild(d);
+  });
+}
+function show() {
+  const s = R.shots.find((x) => x.id === cur); if (!s) return; const p = pick(s);
+  document.getElementById("shotTitle").textContent = s.label || s.id;
+  document.getElementById("shotMeta").textContent = "Slot: " + s.slot + ". Current move: " + p.move + (p.move !== p.original ? " (was " + p.original + ")" : "");
+  const alts = document.getElementById("alts"); alts.innerHTML = "";
+  const order = (m) => (m.slot === s.slot ? 0 : 1);   // same slot first, then everything else
+  R.moves.slice().sort((x, y) => order(x) - order(y)).forEach((m) => {
+    const a = document.createElement("div"); a.className = "alt" + (m.code === p.move ? " cur" : "");
+    a.innerHTML = (m.preview ? '<video muted loop autoplay playsinline src="' + m.preview + '"></video>' : '<div class="noprev">No preview</div>') + "<b>" + m.name + "</b><small>" + m.code + " &middot; " + (m.slot === s.slot ? "same slot" : m.slot) + "</small>";
+    a.onclick = () => { p.move = m.code; save(); show(); }; alts.appendChild(a);
+  });
+  const n = document.getElementById("note"); n.value = p.note || ""; n.oninput = () => { p.note = n.value; save(); };
+}
+const out = () => JSON.stringify({ project: R.project, picks: Object.values(picks).filter((p) => p.move !== p.original || p.note) }, null, 2);
+document.getElementById("dl").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([out()], { type: "application/json" })); a.download = "picks.json"; a.click(); };
+document.getElementById("copy").onclick = async () => { try { await navigator.clipboard.writeText(out()); document.getElementById("copy").textContent = "Copied"; } catch (e) { prompt("Copy this", out()); } };
+vid.addEventListener("timeupdate", () => { const s = R.shots.find((x) => vid.currentTime >= (x.t0 || 0) && vid.currentTime < (x.t0 || 0) + (x.d || 0)); if (s && s.id !== cur && !vid.paused) { cur = s.id; show(); paint(); } });
+paint();
+</script>
+</body>
+</html>

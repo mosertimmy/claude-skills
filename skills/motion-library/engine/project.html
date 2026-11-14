@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Motion project</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: transparent; }
+  #stage { position: absolute; left: 0; top: 0; overflow: hidden; transform-origin: 0 0; }
+  .shot { position: absolute; inset: 0; visibility: hidden; }
+  #ui { position: fixed; left: 0; right: 0; bottom: 0; display: none; gap: 12px; align-items: center;
+        padding: 10px 14px; background: #111; color: #eee; font: 13px system-ui, sans-serif; }
+  #ui button { background: #eee; color: #111; border: 0; border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+  #ui input { flex: 1; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="ui"><button id="play">Play</button><input id="scrub" type="range" min="0" max="1000" value="0"><span id="clock">0.0s</span></div>
+<script>/*__MOTION__*/</script>
+<script>/*__MOVES__*/</script>
+<script>/*__DATA__*/</script>
+<script>
+(function () {
+  const P = window.PROJECT, L = window.LIBRARY || {};
+  const fmt = P.format || "16:9";
+  const [W, H] = fmt === "9:16" ? [1080, 1920] : [1920, 1080];
+  const brand = Object.assign({ ink: "#111111", paper: "#F5F5F4", accent: "#2563EB",
+    font: "Inter, system-ui, -apple-system, Segoe UI, sans-serif" }, L.brand || {}, P.brand || {});
+  const stage = document.getElementById("stage");
+  stage.style.width = W + "px"; stage.style.height = H + "px";
+  stage.style.background = P.bg || "transparent";
+  const shots = P.shots.map((s) => {
+    const mv = window.MOVES[s.move];
+    if (!mv) throw new Error("Unknown move " + s.move + ". Is its file in moves/ and listed in library.json?");
+    const el = document.createElement("div"); el.className = "shot"; stage.appendChild(el);
+    const props = Object.assign({}, (mv.meta && mv.meta.props) || {}, s.props || {});
+    const inst = mv.create(el, props, { w: W, h: H, format: fmt, brand });
+    return { el, inst, t0: s.t0 || 0, d: s.d || inst.duration };
+  });
+  window.__duration = P.duration || Math.max.apply(null, shots.map((x) => x.t0 + x.d));
+  window.seek = function (t) {
+    shots.forEach((x) => {
+      const local = t - x.t0, on = local >= 0 && local <= x.d;
+      x.el.style.visibility = on ? "visible" : "hidden";
+      if (on) x.inst.seek(local, x.d);
+    });
+  };
+  window.__ready = true;
+  window.seek(0);
+  if (!window.__RENDER) {            // live preview: fit to window, play and scrub
+    const ui = document.getElementById("ui"); ui.style.display = "flex";
+    const fit = () => { const k = Math.min(innerWidth / W, (innerHeight - 52) / H); stage.style.transform = "scale(" + k + ")"; };
+    fit(); addEventListener("resize", fit);
+    document.body.style.background = P.bg && P.bg !== "transparent" ? P.bg : "#ddd";
+    const play = document.getElementById("play"), scrub = document.getElementById("scrub"), clock = document.getElementById("clock");
+    let playing = true, t0 = performance.now(), base = 0;
+    const draw = (t) => { window.seek(t); scrub.value = (t / window.__duration) * 1000; clock.textContent = t.toFixed(1) + "s"; };
+    const loop = () => { if (playing) { let t = base + (performance.now() - t0) / 1000;
+      if (t > window.__duration) { t = 0; base = 0; t0 = performance.now(); } draw(t); } requestAnimationFrame(loop); };
+    play.onclick = () => { playing = !playing; play.textContent = playing ? "Pause" : "Play"; base = (scrub.value / 1000) * window.__duration; t0 = performance.now(); };
+    scrub.oninput = () => { playing = false; play.textContent = "Play"; base = (scrub.value / 1000) * window.__duration; draw(base); };
+    play.textContent = "Pause"; loop();
+  }
+})();
+</script>
+</body>
+</html>

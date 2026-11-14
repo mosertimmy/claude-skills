@@ -1,0 +1,11 @@
+{
+  "name": "example",
+  "format": "9:16",
+  "bg": "transparent",
+  "shots": [
+    { "id": "s1", "label": "Opening headline", "slot": "headline", "move": "HL1", "t0": 0.0, "d": 2.4, "props": { "text": "Make something worth watching" } },
+    { "id": "s2", "label": "Key stat", "slot": "stat", "move": "ST1", "t0": 2.6, "d": 2.6, "props": { "value": 3, "suffix": "x", "label": "faster edits" } },
+    { "id": "s3", "label": "Cut", "slot": "transition", "move": "TR1", "t0": 5.0, "d": 1.0 },
+    { "id": "s4", "label": "Closing card", "slot": "card", "move": "CD1", "t0": 5.5, "d": 2.8, "props": { "title": "Try it yourself", "body": "Add your own reference to grow the library." } }
+  ]
+}
