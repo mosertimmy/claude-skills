@@ -1,4 +1,3 @@
-2fc954539db5a09dc31371ca0b2802a3afa9d9d1934f60be0c74a1b469df8805  fast-setup-v1.2.1.zip
 6352970c405032ee515edda9bb40c970f0e6aa305adcc76835a96aa9101b7f5e  infographic-guide-v1.3.1.zip
 db9eba9d03b8bb1b34cb2cea4eb7a0e14ded724a527943f26670aceca7253ce4  motion-graphics-video-v1.2.0.zip
 35a3a53a6c5244c56ebe6804363a370b56b091a383427c1efde1073a499bf2f0  motion-library-builder-v1.2.0.zip
