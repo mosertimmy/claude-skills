@@ -1,4 +1,3 @@
 8e692fa2a2e5becb3a5041508a32f4a5349ce85ed4d9163662616b5298bbd3fd  infographic-guide-v1.3.2.zip
 02ce0c0d751f5e6bdd770dd0c7e0f15226988dbb5ed55d4de52832f6f2bcd596  motion-library-v1.0.0.zip
 df1cfbdd8f8b9e818e333c57cdcfcc3b5779a0c78f295515b9c9b90c7ba30b1d  project-to-blog-v1.3.2.zip
-f5f897ccfc5e8124b2d830b9ec9cbda7698f36363fcc4be104a52a80d2c83a06  runway-people-generation-v1.2.1.zip
