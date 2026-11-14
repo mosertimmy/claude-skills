@@ -2,7 +2,7 @@
 name: infographic-guide
 description: Use when someone wants an instructional infographic, guide PDF or how-to graphic about a workflow with AI tools (e.g. Claude + Runway). Builds a clean step-by-step A4 guide that follows one real example from start to finish.
 metadata:
-  version: "1.3.1"
+  version: "1.3.2"
   author: Timmy Moser (timmymoser.com)
 ---
 
@@ -12,17 +12,14 @@ Build an easy-to-follow, actionable guide as a set of designed A4 pages that exp
 
 ## Before you start: folder check
 
-Run this once at the start of the chat, then start the job. Never re-teach setup here.
+Do this once at the start of the chat, then start the job. Never explain it.
 
 | You find | Do this |
 |---|---|
-| A folder with `WORKSPACE.md` | Read it, follow its house rules and paths, then start. Say nothing about setup |
-| A folder, but no `WORKSPACE.md` | Ask once (multiple choice): **Use this folder as it is** (Recommended) / **Do the fast setup first: timmymoser.com/claude/setup** / **Pick a different folder**. "As it is" means save this job's work in one subfolder named for the job |
-| No folder | Ask once (multiple choice): **Add a folder: click Add folder under the message box, then Add folder again in the list** (Recommended) / **Do the fast setup first: timmymoser.com/claude/setup** / **No folder: send me the files in this chat** |
+| A folder is connected | Work in it. Save this job's work in one subfolder named for the job. If the folder holds a `WORKSPACE.md`, read it and follow it |
+| No folder | Work in the chat. Ask for the files you need here, deliver every output as a file in the chat, and tell the user where to save it on their computer. Offer once (multiple choice) to add a folder: **Add a folder: click Add folder under the message box** / **Carry on in this chat** |
 
-After the answer: if they pick the fast setup, give the link and wait. If they pick a different folder, ask them to add it, then run this check again. If they pick no folder, work in the chat: ask for the files you need here, deliver every output as a file in the chat, and tell them where to save it on their computer.
-
-Model: say in one line that Sonnet is the default. If this job needs Opus, say that too, before you start (the model guide is the "Which model?" card on timmymoser.com/claude/setup).
+Model: say in one line that Sonnet is the default. If this job needs Opus, say that too, before you start.
 
 ## Where to build it
 
@@ -42,7 +39,7 @@ Model: say in one line that Sonnet is the default. If this job needs Opus, say t
 1. **Cover:** black, big title naming the tools (one accent colour on the tool names), a one-line subtitle, and the followed output as one large image. No eyebrow pill or label above the title, no boxes on the image, no header strip.
 2. **The steps:** one row per step (never a grid or columns): number, title, one-line description, tool tag. The guide's own tool setup is step 0.
 3. **How each tool is used:** black page, one white box per tool, tool logo on top with its role left-aligned underneath. Rows of best practices, each with a short line on what it gives you ("saves tokens and speeds up every review"). Editing apps can share one box.
-4. **Before you start (one box, no setup steps):** the guide never re-teaches setup. One line, the link timmymoser.com/claude/setup and its QR. Then, only if the guide's own tool must be connected (e.g. the Runway connector), a step 0 page for that tool alone: real screenshots, one per action, plus the link in a copy box.
+4. **Before you start (one box, no setup steps):** the guide never re-teaches setup. One line: attach your files to the chat or add a folder. Then, only if the guide's own tool must be connected (e.g. the Runway connector), a step 0 page for that tool alone: real screenshots, one per action, plus the link in a copy box.
 5. **One page per step** (spill onto a "continued" page if needed):
    - Headline "Step N: [action]", with no highlight behind the words.
    - One-line explanation underneath.
@@ -58,7 +55,7 @@ Model: say in one line that Sonnet is the default. If this job needs Opus, say t
 - Simpler is better. No commentary blocks (golden rules, stats, "what Claude found"), no settings tables, no folder diagrams. Settings live in the step text or the prompt.
 - Happy flow only: checks are steps, fixes are the last step. No troubleshooting asides, no prep-only steps.
 - If one tool drives the others (e.g. you only ever paste into Claude, and Claude runs the other apps through connectors), say so everywhere. Every prompt opens with the instruction to the tool.
-- The general working rules (ask before deleting, plan before building, save to the project folder) come from the fast setup and are never repeated. The guide's first prompt carries only the tool's own rules: ask before spending credits, draft on the cheapest settings first, run one look at a time, remove superseded versions.
+- The general working rules (ask before deleting, plan before building, save to the project folder) are the reader's own and are never repeated. The guide's first prompt carries only the tool's own rules: ask before spending credits, draft on the cheapest settings first, run one look at a time, remove superseded versions.
 - Prompts are generic, with [brackets] for what the reader swaps in. No private brand names, people or client details.
 - Ask once whether the user has a referral or discount code for any tool in the guide. If they do, show it in a copy box wherever that tool is set up, and on the costs line.
 - Plain short lines, left-aligned labels and sublines, no em dashes.
@@ -72,4 +69,4 @@ Model: say in one line that Sonnet is the default. If this job needs Opus, say t
 - **Chat-first prompts.** Every lesson must work with no setup: prompts assume the reader attaches or pastes the content into the Claude chat ("the take I've attached to this chat"), never a folder or file path.
 - **Name every product and link its official page** (no tracking parameters), in the guide and in any blog post.
 - **Check every page fits A4** before export: render each page at 794 x 1123 and tighten images or spacing on any page that runs over.
-- **If you also write a blog post from the guide:** same steps, titles, numbering and prompts. Layout: intro, result image or video, free skill box if one exists, a "What is [tool]?" section when one tool is the star, the steps, then at the very end a "What it costs" line, Related guides and a closing line. Offer the guide PDF through the post's Button 1 only, never as an inline line, and never with a page count. A blog never repeats the guide's "The steps" or "How each tool is used" pages.
+- **If you also write a blog post from the guide:** same steps, titles, numbering and prompts. Layout: intro, result image or video, free skill box if one exists, a "What is [tool]?" section when one tool is the star, the steps, then at the very end a "What it costs" line, Related guides and a closing line. Offer the guide PDF through the post's download button only, never as an inline line, and never with a page count. A blog never repeats the guide's "The steps" or "How each tool is used" pages.

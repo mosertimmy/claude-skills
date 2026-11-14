@@ -8,9 +8,9 @@ Every skill here is plain text. You can read every file before you install anyth
 
 | Skill | What it does | Version | Download |
 |---|---|---|---|
-| [infographic-guide](skills/infographic-guide) | Builds a clean, step-by-step A4 guide that follows one real example | 1.3.1 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/infographic-guide-v1.3.1.zip) |
-| [project-to-blog](skills/project-to-blog) | Turns the work in a Claude project into a blog post draft | 1.3.1 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/project-to-blog-v1.3.1.zip) |
-| [runway-people-generation](skills/runway-people-generation) | Makes realistic images and short clips of people with Claude and Runway | 1.2.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/runway-people-generation-v1.2.0.zip) |
+| [infographic-guide](skills/infographic-guide) | Builds a clean, step-by-step A4 guide that follows one real example | 1.3.2 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/infographic-guide-v1.3.2.zip) |
+| [project-to-blog](skills/project-to-blog) | Turns the work in a Claude project into a blog post draft | 1.3.2 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/project-to-blog-v1.3.2.zip) |
+| [runway-people-generation](skills/runway-people-generation) | Makes realistic images and short clips of people with Claude and Runway | 1.2.1 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/runway-people-generation-v1.2.1.zip) |
 | [motion-library](skills/motion-library) | Save any reference video as a reusable move, make videos from your library, and review drafts shot by shot. Nothing else needed | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/motion-library-v1.0.0.zip) |
 
 Each skill folder holds `SKILL.md` (the instructions Claude follows), a short `README.md` and a `CHANGELOG.md`. The zips are in the [downloads](downloads) folder.

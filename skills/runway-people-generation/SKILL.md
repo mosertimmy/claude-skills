@@ -2,7 +2,7 @@
 name: runway-people-generation
 description: Use when someone wants realistic images or short clips of people made with Claude and Runway (product shots on models, lifestyle scenes in real places, their own likeness, keyframes, animations). Covers the cast, reference method, prompts, video keyframes and credit rules.
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
   author: Timmy Moser (timmymoser.com)
 ---
 
@@ -12,15 +12,12 @@ Make realistic images and short clips of people in real places: AI models wearin
 
 ## Before you start: folder check
 
-Run this once at the start of the chat, then start the job. Never re-teach setup here.
+Do this once at the start of the chat, then start the job. Never explain it.
 
 | You find | Do this |
 |---|---|
-| A folder with `WORKSPACE.md` | Read it, follow its house rules and paths, then start. Say nothing about setup |
-| A folder, but no `WORKSPACE.md` | Ask once (multiple choice): **Use this folder as it is** (Recommended) / **Do the fast setup first: timmymoser.com/claude/setup** / **Pick a different folder**. "As it is" means save this job's work in one subfolder named for the job |
-| No folder | Ask once (multiple choice): **Add a folder: the + beside the message box, then Add folder** (Recommended) / **Do the fast setup first: timmymoser.com/claude/setup** / **No folder: send me the files in this chat** |
-
-After the answer: if they pick the fast setup, give the link and wait. If they pick a different folder, ask them to add it, then run this check again. If they pick no folder, work in the chat: ask for the files you need here, deliver every output as a file in the chat, and tell them where to save it on their computer.
+| A folder is connected | Work in it. Save this job's work in one subfolder named for the job. If the folder holds a `WORKSPACE.md`, read it and follow it |
+| No folder | Work in the chat. Ask for the files you need here, deliver every output as a file in the chat, and tell the user where to save it on their computer. Offer once (multiple choice) to add a folder: **Add a folder: click Add folder under the message box** / **Carry on in this chat** |
 
 Model: say in one line that Sonnet is the default.
 
@@ -28,7 +25,7 @@ Model: say in one line that Sonnet is the default.
 
 1. Check the Runway connector is connected in Claude. If not, walk the user through adding it as a custom connector: open Connectors in Claude's settings (look for Customize or Settings, then Connectors), choose Add, name it Runway, paste `https://mcp.runwayml.com/mcp`, choose Continue and sign in to Runway. Then test it with a read-only call (list their workspaces).
    - Runway needs a paid plan with credits. If they don't have one, they can sign up at runwayml.com; Timmy Moser's code **mosertimmy25** gives 25% off any plan at checkout.
-2. Make a subfolder for this job inside the folder from the folder check and save a `PEOPLE.md` in it: the brand or product, the cast, the reference library and the working rules below. Read it at the start of every chat. If `WORKSPACE.md` names a path for this kind of work, use that. With no folder, keep the same notes in the chat, save nothing, and ask the user to paste them back at the start of the next chat.
+2. Make a subfolder for this job inside the folder from the folder check and save a `PEOPLE.md` in it: the brand or product, the cast, the reference library and the working rules below. Read it at the start of every chat. If a `WORKSPACE.md` names a path for this kind of work, use that. With no folder, keep the same notes in the chat, save nothing, and ask the user to paste them back at the start of the next chat.
 3. Ask for the files in one list (every other question is multiple choice):
    - **The product** (if any): clear photos from the front and back, plus the logo as a file. Describe where the logo sits ("small, on the wearer's left chest", "centred on the back").
    - **Places:** real photos of each location, ideally one from ground level where the person will stand.

@@ -2,7 +2,7 @@
 name: project-to-blog
 description: Use when someone wants a blog post from the work in a Claude project, or says "blog this project", "write a blog" or "check for new blogs". Researches the project, pitches topics, drafts instructional posts and (optionally) puts them in the site's CMS as drafts.
 metadata:
-  version: "1.3.1"
+  version: "1.3.2"
   author: Timmy Moser (timmymoser.com)
 ---
 
@@ -12,15 +12,12 @@ Turn the work in the current Claude project into blog posts. Posts are instructi
 
 ## Before you start: folder check
 
-Run this once at the start of the chat, then start the job. Never re-teach setup here.
+Do this once at the start of the chat, then start the job. Never explain it.
 
 | You find | Do this |
 |---|---|
-| A folder with `WORKSPACE.md` | Read it, follow its house rules and paths, then start. Say nothing about setup |
-| A folder, but no `WORKSPACE.md` | Ask once (multiple choice): **Use this folder as it is** (Recommended) / **Do the fast setup first: timmymoser.com/claude/setup** / **Pick a different folder**. "As it is" means save this job's work in one subfolder named for the job |
-| No folder | Ask once (multiple choice): **Add a folder: click Add folder under the message box, then Add folder again in the list** (Recommended) / **Do the fast setup first: timmymoser.com/claude/setup** / **No folder: send me the files in this chat** |
-
-After the answer: if they pick the fast setup, give the link and wait. If they pick a different folder, ask them to add it, then run this check again. If they pick no folder, work in the chat: ask for the files you need here, deliver every output as a file in the chat, and tell them where to save it on their computer.
+| A folder is connected | Work in it. Save this job's work in one subfolder named for the job. If the folder holds a `WORKSPACE.md`, read it and follow it |
+| No folder | Work in the chat. Ask for the files you need here, deliver every output as a file in the chat, and tell the user where to save it on their computer. Offer once (multiple choice) to add a folder: **Add a folder: click Add folder under the message box** / **Carry on in this chat** |
 
 ## Ground rules
 
@@ -32,7 +29,7 @@ After the answer: if they pick the fast setup, give the link and wait. If they p
 
 ## First run: blog choices
 
-If `BLOG_SETUP.md` doesn't exist yet, ask once (after the folder check), then save the answers in it, in the blog folder named in `WORKSPACE.md` or the folder from the folder check:
+If `BLOG_SETUP.md` doesn't exist yet, ask once (after the folder check), then save the answers in it, in the blog folder (the one `WORKSPACE.md` names if there is one, otherwise the job folder):
 
 1. Their style guide, if they have one. If not, offer to write a short one from 2 or 3 posts they like.
 2. Their CMS (multiple choice, max 4 options): Framer / Webflow / WordPress / Other or none (markdown only). If a connector for it is available in Claude, note the collection and field names.
@@ -79,7 +76,7 @@ Instructional posts about AI tools follow this guide format:
 - **No commentary blocks:** no golden rules, stats boxes, settings tables or folder diagrams.
 - **Teach the method, not the inventory:** one line on the idea plus the rule that makes it work.
 - **Series (only if chosen):** each part stands alone; mention the other parts by name.
-- **At the very end, in this order:** a "What it costs" line, then "Related guides" by name (two at most), then one useful or dry closing line. If the project has a guide, offer the PDF through Button 1 only (label "Download the guide (PDF)"), never as an inline line in the body and never with a page or step count. A post with no guide has no PDF button. No conclusion heading.
+- **At the very end, in this order:** a "What it costs" line, then "Related guides" by name (two at most), then one useful or dry closing line. If the project has a guide, offer the PDF through the post's download button only (label "Download the guide (PDF)"), never as an inline line in the body and never with a page or step count. A post with no guide has no PDF button. No conclusion heading.
 - Length: 900 to 2,200 words.
 - Fields above the body: Title, Slug, Category, Lead (110 to 155 characters), Date, Read time (words / 220, rounded up), Cover + alt.
 - Draft one post at a time.
