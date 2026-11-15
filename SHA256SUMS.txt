@@ -1,3 +1,4 @@
-8e692fa2a2e5becb3a5041508a32f4a5349ce85ed4d9163662616b5298bbd3fd  infographic-guide-v1.3.2.zip
+055eeb07d224a4162e9775e0470c7831ecbcef9436a5fbdd31442a96519742fc  avoid-ai-design-slop-v1.0.0.zip
+2a356f5cd562f8b35662284a732bf11f7e7aafdc5557eba030baff6834a08abe  chat-handoff-v1.0.0.zip
 02ce0c0d751f5e6bdd770dd0c7e0f15226988dbb5ed55d4de52832f6f2bcd596  motion-library-v1.0.0.zip
-df1cfbdd8f8b9e818e333c57cdcfcc3b5779a0c78f295515b9c9b90c7ba30b1d  project-to-blog-v1.3.2.zip
+7e5558deafbe44417485b3371068e40d0146b7ae79324c3ce955e54a8239fc51  prep-first-v1.0.0.zip

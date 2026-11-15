@@ -8,9 +8,10 @@ Every skill here is plain text. You can read every file before you install anyth
 
 | Skill | What it does | Version | Download |
 |---|---|---|---|
-| [infographic-guide](skills/infographic-guide) | Builds a clean, step-by-step A4 guide that follows one real example | 1.3.2 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/infographic-guide-v1.3.2.zip) |
-| [project-to-blog](skills/project-to-blog) | Turns the work in a Claude project into a blog post draft | 1.3.2 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/project-to-blog-v1.3.2.zip) |
 | [motion-library](skills/motion-library) | Save any reference video as a reusable move, make videos from your library, and review drafts shot by shot. Nothing else needed | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/motion-library-v1.0.0.zip) |
+| [avoid-ai-design-slop](skills/avoid-ai-design-slop) | Briefs Claude before it designs, then audits the result against 25 AI design tells | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/avoid-ai-design-slop-v1.0.0.zip) |
+| [prep-first](skills/prep-first) | Makes a cheap summary and contact sheet of videos, images and long files so Claude reads less. Script included | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/prep-first-v1.0.0.zip) |
+| [chat-handoff](skills/chat-handoff) | Saves unfinished work to one file and gives you a single line to paste into a new chat | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/chat-handoff-v1.0.0.zip) |
 
 Each skill folder holds `SKILL.md` (the instructions Claude follows), a short `README.md` and a `CHANGELOG.md`. The zips are in the [downloads](downloads) folder.
 
@@ -27,13 +28,13 @@ Every zip has a SHA-256 checksum. The full list is in [SHA256SUMS.txt](SHA256SUM
 **Mac or Linux**
 
 ```
-shasum -a 256 infographic-guide-v1.3.1.zip
+shasum -a 256 motion-library-v1.0.0.zip
 ```
 
 **Windows (PowerShell)**
 
 ```
-Get-FileHash infographic-guide-v1.3.1.zip -Algorithm SHA256
+Get-FileHash motion-library-v1.0.0.zip -Algorithm SHA256
 ```
 
 Compare the result with the checksum in `SHA256SUMS.txt`. If they differ, do not install the file.
