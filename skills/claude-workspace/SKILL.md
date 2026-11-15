@@ -1,8 +1,8 @@
 ---
 name: claude-workspace
-description: Use when someone wants Claude to work from a folder on their computer, wants to get organised, or asks how to store and find the files Claude makes. Walks a first-time user through setting up the folder, organises it with 5S, then keeps using it on every task.
+description: Use to set up a Claude workspace folder, and on every later task that makes, edits or needs files once one exists. Walks a first-time user through the setup, organises it with 5S, then saves everything Claude makes into it automatically.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   author: Timmy Moser (timmymoser.com)
 ---
 
@@ -46,7 +46,25 @@ Claude Workspace/
   _to_delete/         anything to remove. Claude never deletes
 ```
 
-Finish by telling them what was made in two lines, and the five phrases they can now say (see Commands).
+Then make it automatic (step 2b). Finish by telling them what was made in two lines, and the five phrases they can now say (see Commands).
+
+## 2b. Make it automatic
+
+A skill only helps when it loads. Put a standing instruction where Claude always sees it, so every task starts from the folder. Offer this once, as multiple choice ("Make it automatic? Yes (Recommended) / No"):
+
+| Where they use Claude | Where the instruction goes |
+|---|---|
+| Claude Code | Add the line below to `~/.claude/CLAUDE.md` (create it if missing) |
+| Claude app | Give them the line to paste into Settings, Profile, personal preferences |
+| A claude.ai Project | Give them the line to paste into the Project's instructions |
+
+The line (fill in the real path):
+
+```
+Before any task, read START-HERE.md in <path to Claude Workspace>. Save everything you make into that folder as you go, log it, and tell me where it went.
+```
+
+Once a workspace exists, treat any task that makes or edits a file as in scope for this skill, even when the user never mentions the folder. Ask for access to the workspace folder at the start of the task if it is not already linked.
 
 ## 3. The 5S rules (this is what keeps it tidy)
 
@@ -62,7 +80,7 @@ Finish by telling them what was made in two lines, and the five phrases they can
 
 1. **Read `START-HERE.md`.** It is the map and the rules. The computer copy always wins over anything remembered in a chat.
 2. **Open the project's README** and CHANGELOG before working. New work gets a project folder: `1 Projects/<Project>/`, plus `2 Outputs/<Project>/` once something is finished.
-3. **Save as you go.** Anything made in a chat (images, documents, scripts, exports, attached files) goes into the right folder the moment it exists. Never leave it only in the chat.
+3. **Save as you go, automatically.** Do not wait to be asked. Anything made in a chat (images, documents, scripts, exports, attached files) goes into the right folder the moment it exists. Never leave it only in the chat.
 4. **Originals are never edited in place.** Work on a copy.
 5. **Log it.** One line in the project's CHANGELOG: date, chat, type (done, file, decision), what. Add a row to the README Outputs table for every finished output. Never edit earlier lines.
 6. **Say where it went** in one line: "Saved to 2 Outputs/Spring launch/Poster - final - 2026-11-15.png".
@@ -101,4 +119,6 @@ Folder changes happen only when the user agrees. Add a row to "Changes to this m
 
 ## Smoke test
 
-Prompt: "Set up my workspace." Pass if Claude asks at most four multiple-choice questions, creates the folders and START-HERE.md, ends with the five phrases, and on the next task reads START-HERE.md before doing anything.
+Prompt 1: "Set up my workspace." Pass if Claude asks at most four multiple-choice questions, creates the folders and START-HERE.md, offers the standing instruction, and ends with the five phrases.
+
+Prompt 2, in a new chat: "Make me a one-page poster." Pass if Claude reads START-HERE.md first, saves the poster into the right folder without being asked, logs it, and says where it went.

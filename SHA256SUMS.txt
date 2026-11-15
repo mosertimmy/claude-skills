@@ -1,4 +1,4 @@
 055eeb07d224a4162e9775e0470c7831ecbcef9436a5fbdd31442a96519742fc  avoid-ai-design-slop-v1.0.0.zip
 2a356f5cd562f8b35662284a732bf11f7e7aafdc5557eba030baff6834a08abe  chat-handoff-v1.0.0.zip
-79aeb7ab1461a3d01e18a3da0a7b289ce6249fe4bc3d222c4fd37f5953a0792b  claude-workspace-v1.0.0.zip
+e9ddd60913c47092729ba549d5e2b42bd01a592ffc7fd2677622b27355b9443e  claude-workspace-v1.1.0.zip
 02ce0c0d751f5e6bdd770dd0c7e0f15226988dbb5ed55d4de52832f6f2bcd596  motion-library-v1.0.0.zip

@@ -10,7 +10,7 @@ Every skill here is plain text. You can read every file before you install anyth
 |---|---|---|---|
 | [motion-library](skills/motion-library) | Save any reference video as a reusable move, make videos from your library, and review drafts shot by shot. Nothing else needed | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/motion-library-v1.0.0.zip) |
 | [avoid-ai-design-slop](skills/avoid-ai-design-slop) | Briefs Claude before it designs, then audits the result against 25 AI design tells | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/avoid-ai-design-slop-v1.0.0.zip) |
-| [claude-workspace](skills/claude-workspace) | Walks you through setting up one folder on your computer, organised with 5S, that Claude reads first and saves everything into. Script included | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/claude-workspace-v1.0.0.zip) |
+| [claude-workspace](skills/claude-workspace) | Walks you through setting up one folder on your computer, organised with 5S, that Claude reads first and saves everything into. Script included | 1.1.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/claude-workspace-v1.1.0.zip) |
 | [chat-handoff](skills/chat-handoff) | Saves unfinished work to one file and gives you a single line to paste into a new chat | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/chat-handoff-v1.0.0.zip) |
 
 Each skill folder holds `SKILL.md` (the instructions Claude follows), a short `README.md` and a `CHANGELOG.md`. The zips are in the [downloads](downloads) folder.

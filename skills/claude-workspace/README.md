@@ -14,7 +14,7 @@ Do not zip the folder again inside another folder. The skill folder must sit at 
 
 ## Use
 
-Say "set up my workspace". Answer up to four quick questions. After that, say "new project", "save this" or "tidy up" whenever you need them.
+Say "set up my workspace". Answer up to four quick questions, and say yes to making it automatic so Claude saves into the folder on every task. After that, say "new project", "save this" or "tidy up" whenever you need them.
 
 ## Update
 
