@@ -70,6 +70,13 @@ PROJECT_README = """# {project}
 
 One or two lines on what this project is.
 
+## References
+
+Everything added to a chat for this project. Originals are saved in Originals/.
+
+| Name | Source | Why it matters | Saved to |
+|---|---|---|---|
+
 ## Outputs
 
 | Type | Name | Status | Path |
@@ -105,7 +112,7 @@ def main():
         os.makedirs(os.path.join(root, "4 Claude", sub), exist_ok=True)
     owner_text = a.owner + "'s" if a.owner != "my" else "your"
     write(os.path.join(root, "START-HERE.md"), START.format(owner=owner_text, date=date))
-    os.makedirs(os.path.join(root, "1 Projects", "_Project template"), exist_ok=True)
+    os.makedirs(os.path.join(root, "1 Projects", "_Project template", "Originals"), exist_ok=True)
     write(os.path.join(root, "1 Projects", "_Project template", "README.md"), PROJECT_README.format(project="Project name"))
     write(os.path.join(root, "1 Projects", "_Project template", "CHANGELOG.md"), "# Changelog\n\nOne line per change, newest at the bottom. Never edit earlier lines.\n\n| Date | Chat | Type | What |\n|---|---|---|---|\n")
     print(f"Workspace ready: {root}")

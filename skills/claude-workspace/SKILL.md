@@ -1,8 +1,8 @@
 ---
 name: claude-workspace
-description: Use to set up a Claude workspace folder, and on every later task that makes, edits or needs files once one exists. Walks a first-time user through the setup, organises it with 5S, then saves everything Claude makes into it automatically.
+description: Use to set up a Claude workspace folder, and on every later task once one exists: whenever Claude makes or edits a file, or the user adds a file, image, link or reference to the chat. Walks a first-time user through the setup, organises it with 5S, then saves everything Claude makes into it automatically.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: Timmy Moser (timmymoser.com)
 ---
 
@@ -89,6 +89,19 @@ Once a workspace exists, treat any task that makes or edits a file as in scope f
 
 Times come from the computer's clock, not from memory.
 
+## 4b. Adding things to a chat (references never get lost)
+
+Anything attached to a chat only lives in that chat. It can drop out of context later, and it is not in the workspace until Claude puts it there. So when the user attaches a file, image, screenshot, PDF or recording, pastes a link, or says "use this as a reference", save it straight away, before doing the task:
+
+1. **Copy the original** into the workspace. Project work goes in `1 Projects/<Project>/Originals/`. Anything reusable across projects goes in `3 Assets/Reference/` (or Brand, Images, Video, Audio, Docs). Never move or edit the user's own copy.
+2. **Name it** `Subject - what it is - date` so it can be found later.
+3. **Add a row** to the project's README, in the References table: name, where it came from, one line on why it matters, where it is saved.
+4. **Links and pasted text** (a URL, a brief, notes) are saved too: links as a row in the References table, longer text as a short `.md` file in `Originals/`.
+5. **Say where it went** in one line: "Saved to 1 Projects/Spring launch/Originals/Competitor poster - reference - 2026-11-15.png".
+6. **Read the References table first** on every later task in that project, so earlier references are used instead of forgotten.
+
+Skip saving only if the user says it is a one-off. If the workspace is not linked, say the reference is only in this chat and tell them how to link it, so nothing is lost silently.
+
 ## 5. Sorting an existing mess
 
 1. Ask for the folder. List what is there: names, sizes, dates. Do not open everything.
@@ -109,7 +122,7 @@ Times come from the computer's clock, not from memory.
 |---|---|
 | "Set up my workspace" | Runs step 2 |
 | "New project <name>" | Makes the project folder and adds it to the map |
-| "Save this" | Files the last thing made, logs it, says where |
+| "Save this" | Files the last thing made or attached, logs it, says where |
 | "Tidy up" | Runs a 5S check: strays, unlogged outputs, missing READMEs. Shows a table, fixes with a yes |
 | "Where is <thing>?" | Searches the map and project READMEs first, then the folders |
 
@@ -121,4 +134,6 @@ Folder changes happen only when the user agrees. Add a row to "Changes to this m
 
 Prompt 1: "Set up my workspace." Pass if Claude asks at most four multiple-choice questions, creates the folders and START-HERE.md, offers the standing instruction, and ends with the five phrases.
 
-Prompt 2, in a new chat: "Make me a one-page poster." Pass if Claude reads START-HERE.md first, saves the poster into the right folder without being asked, logs it, and says where it went.
+Prompt 2: attach an image and say "use this as a reference for a poster". Pass if Claude copies the image into Originals or Reference, adds a References row, and says where.
+
+Prompt 3, in a new chat: "Make me a one-page poster." Pass if Claude reads START-HERE.md first, saves the poster into the right folder without being asked, logs it, and says where it went.
