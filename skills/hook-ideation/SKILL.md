@@ -71,7 +71,7 @@ One table, 6 to 8 rows, best idea first.
 
 ## Format bank
 
-Format names from byjoeym's "35 S-Tier Ad Formats to Steal" (a partial list, 31 of the 35). Names only: work out how each one fits the subject.
+Format names from byjoeym's "35 S-Tier Ad Formats to Steal" (a partial list of the 35). Names only: work out how each one fits the subject.
 
 Censored, The truth, Don't be an idiot, X for X, Song playlist, Tap your goals, Native, Let's talk numbers, Science article, Tier list, Venn diagram, Zero stars, Email screenshot, Doodle, Reddit style, Quiz, Cartoon, Recipes, WhatsApp text, X signs you, Breaking news, Sourcing, Avoid this, Whiteboard, Greenscreen, Receipt, Partnership carousels, Notification offer, Demographic callout, Text on skin, Stat headline, Free ticket.
 
