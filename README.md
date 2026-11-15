@@ -12,6 +12,7 @@ Every skill here is plain text. You can read every file before you install anyth
 | [avoid-ai-design-slop](skills/avoid-ai-design-slop) | Briefs Claude before it designs, then audits the result against 25 AI design tells | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/avoid-ai-design-slop-v1.0.0.zip) |
 | [claude-workspace](skills/claude-workspace) | Walks you through setting up one folder on your computer, organised with 5S, that Claude reads first and saves everything into. Script included | 1.1.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/claude-workspace-v1.1.0.zip) |
 | [chat-handoff](skills/chat-handoff) | Saves unfinished work to one file and gives you a single line to paste into a new chat | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/chat-handoff-v1.0.0.zip) |
+| [hook-ideation](skills/hook-ideation) | Turns any subject, clip or idea into a ranked table of hooks and formats for reels, Shorts and TikToks | 1.0.0 | [zip](https://github.com/mosertimmy/claude-skills/raw/main/downloads/hook-ideation-v1.0.0.zip) |
 
 Each skill folder holds `SKILL.md` (the instructions Claude follows), a short `README.md` and a `CHANGELOG.md`. The zips are in the [downloads](downloads) folder.
 

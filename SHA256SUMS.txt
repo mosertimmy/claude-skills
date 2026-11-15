@@ -2,3 +2,4 @@
 2a356f5cd562f8b35662284a732bf11f7e7aafdc5557eba030baff6834a08abe  chat-handoff-v1.0.0.zip
 e9ddd60913c47092729ba549d5e2b42bd01a592ffc7fd2677622b27355b9443e  claude-workspace-v1.1.0.zip
 02ce0c0d751f5e6bdd770dd0c7e0f15226988dbb5ed55d4de52832f6f2bcd596  motion-library-v1.0.0.zip
+1a8e8da8a5c3362db0a3e903fbf1f81068d160dbe07e517d8545ad047063777e  hook-ideation-v1.0.0.zip
